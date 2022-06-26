@@ -2,20 +2,21 @@ import React, { useState } from "react";
 
 const apiUrl = "https://api.lyrics.ovh/v1/";
 
-const Form = () => {
+const Lyrics = () => {
   const [artist, setArtist] = useState("");
   const [song, setSong] = useState("");
   const [lyrics, setLyrics] = useState("");
   const [error, setError] = useState(null);
 
-  const fetchPost = async (url) => {
+  const fetchLyrics = async (url) => {
     setError(null);
     try {
       const res = await fetch(url, { mode: "cors" });
-
       const lyrics = await res.json();
+
+      //couldnt get the replace to work. Needs help on this.
+      setLyrics(lyrics.lyrics.replace(/(\n|\r)/g, "<br />"));
       console.log(lyrics);
-      setLyrics(lyrics.lyrics);
     } catch (err) {
       setError(err.message);
     }
@@ -30,7 +31,7 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchPost(apiUrl + artist + "/" + song);
+    fetchLyrics(apiUrl + artist + "/" + song);
   };
 
   const artistSong = artist + " - " + song;
@@ -66,9 +67,13 @@ const Form = () => {
         </button>
       </form>
       <h2 className="capitalize mt-2 text-3xl">{artistSong}</h2>
-      <p className="ml-24 mt-10 text-2xl max-w-xl max-h-m">{lyrics}</p>
+      {/* this is some scary shit */}
+      <p
+        className="ml-40 mt-10 mb-10 text-l max-w-lg text-center border-2 border-sky-500	"
+        dangerouslySetInnerHTML={{ __html: lyrics }}
+      ></p>
     </div>
   );
 };
 
-export default Form;
+export default Lyrics;
