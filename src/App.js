@@ -45,11 +45,10 @@ function App() {
         handleSongChange={handleSongChange}
         fetchLyrics={fetchLyrics}
       />
-      <div className="grid grid-cols-6 gap-4 border- 2 bg-slate-500">
+      <div className="grid grid-cols-6 gap-4 border- 2">
         <div className=" block mt-4 mb-10">
           <Youtube />
         </div>
-
         {/* this is scary */}
         <p
           className=" leading-tight col-start-3 col-end-7 block ml-40 mt-10 mb-10 text-m max-w-2xl text-center border-2 border-sky-500	"

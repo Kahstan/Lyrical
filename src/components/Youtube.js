@@ -27,7 +27,25 @@ const Youtube = () => {
         (obj) => "https://www.youtube.com/embed/" + obj.id.videoId
       );
 
-      setSearch({ mapData });
+      const finalMapData = mapData.map((link, i) => {
+        return (
+          <div className="youtube" key={i}>
+            <iframe
+              className="ml-10 relative"
+              width="560"
+              height="315"
+              key={i}
+              src={link}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+          </div>
+        );
+      });
+
+      console.log(finalMapData);
+      setSearch(finalMapData);
     } catch (err) {
       setError(err.message);
     }
@@ -42,9 +60,7 @@ const Youtube = () => {
     event.preventDefault();
     fetchSearch(finalUrl);
   };
-  //still not able to map it out, the website crashes when the jsx gets loaded without value, thinking whether or not to just display the first video first.
-  console.log(search.mapData);
-
+  //still not able to map it out, the website crashes when the jsx gets loaded without value, thinking whether or not to just display the first data shown
   return (
     <div>
       <form className="ml-40 mb-10">
@@ -59,7 +75,7 @@ const Youtube = () => {
           Search
         </button>
       </form>
-      {search.mapData}
+      <div>{search}</div>
       {/* {search.mapData.map((link, i) => {
         const frame = (
           <div className="youtube">
