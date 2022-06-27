@@ -7,7 +7,6 @@ function App() {
     <div>
       <h1 className="text-5xl font-medium py-2">Search Lyrics</h1>
       <Lyrics />
-      <Youtube />
     </div>
   );
 }

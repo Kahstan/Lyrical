@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Youtube from "./Youtube";
 
 const apiUrl = "https://api.lyrics.ovh/v1/";
 
@@ -67,6 +68,7 @@ const Lyrics = () => {
         </button>
       </form>
       <h2 className="capitalize mt-2 text-3xl">{artistSong}</h2>
+      <Youtube handleClick={handleSubmit} />
       {/* this is some scary shit */}
       <p
         className="ml-40 mt-10 mb-10 text-l max-w-lg text-center border-2 border-sky-500	"

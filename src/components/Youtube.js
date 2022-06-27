@@ -6,24 +6,32 @@ const search = "coldplay";
 
 const finalUrl = `https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${APIKEY}&maxResults=${result}`;
 
-const Youtube = () => {
+const Youtube = (props) => {
   const [search, setSearch] = useState("");
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchSearch = async (url) => {
+    setIsLoading(true);
     setError(null);
     try {
-      const res = await fetch(url, { mode: "cors" });
+      const res = await fetch(url);
+
+      if (res.status !== 200) {
+        throw new Error("something is wrong");
+      }
+
       const data = await res.json();
       const mapData = data.items.map(
         (obj) => "https://www.youtube.com/embed/" + obj.id.videoId
       );
-      console.log(mapData);
+
       setSearch({ mapData });
       console.log(search.mapData);
     } catch (err) {
       setError(err.message);
     }
+    setIsLoading(false);
   };
 
   const handleSubmit = (event) => {
@@ -31,25 +39,26 @@ const Youtube = () => {
     fetchSearch(finalUrl);
   };
 
-  console.log(finalUrl);
   return (
     <div>
       <button type="button" onClick={handleSubmit}>
         Click
       </button>
-      {/* {search.mapData.map((link, i) => { */}
-      {/* const frame = */}
+      {/* {search.mapData.map((link, i) => {
+        const frame = ( */}
       <div className="youtube">
         <iframe
+          className="ml-10"
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/c6t3bW7kx6E"
+          src="https://www.youtube.com/embed/yKNxeF4KMsY"
           title="YouTube video player"
-          frameBorder="0"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
         ></iframe>
       </div>
+      {/* ); */}
+      {/* return frame; */}
       {/* })} */}
     </div>
   );
