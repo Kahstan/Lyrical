@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Lyrics from "./components/Lyrics";
-import Youtube from "./components/Youtube";
+import Artist from "./components/Artist";
+import Song from "./components/Song";
 
 const apiUrl = "https://api.lyrics.ovh/v1/";
 const APIKEY = "AIzaSyDkfCnshU7ku2AMAvsLa7U4SfED2ZO84ws";
@@ -87,10 +88,6 @@ function App() {
     setIsLoading(false);
   };
 
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
-
   useEffect(() => {
     if (!firstLoad) {
       fetchLyrics(apiUrl + artist + "/" + song);
@@ -103,24 +100,18 @@ function App() {
   return (
     <div>
       <h1 className="text-5xl font-medium py-2">Search Lyrics</h1>
-
-      <Lyrics
-        handleSubmit={handleSubmit}
-        handleArtistChange={handleArtistChange}
-        handleSongChange={handleSongChange}
-        fetchLyrics={fetchLyrics}
-      />
+      <form>
+        <Artist handleArtistChange={handleArtistChange} />
+        <Song handleSongChange={handleSongChange} />
+        <Lyrics handleSubmit={handleSubmit} />
+      </form>
       <div className="grid grid-cols-6 gap-4 border- 2">
         <div className=" block mt-4 mb-10">
-          <Youtube
-            handleInputChange={handleInputChange}
-            handleYoutubeSubmit={handleSubmit}
-          />
-          <div>{search}</div>
+          <div className="mt-6">{search}</div>
         </div>
         {/* this is scary */}
         <p
-          className=" leading-tight col-start-3 col-end-7 block ml-40 mt-10 mb-10 text-m max-w-2xl text-center border-2 border-sky-500	"
+          className=" leading-tight col-start-3 col-end-7 block ml-40 mt-10 mb-10 text-m max-w-2xl text-center	"
           dangerouslySetInnerHTML={{ __html: lyrics }}
         ></p>
       </div>
