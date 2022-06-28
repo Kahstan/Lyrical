@@ -19,6 +19,7 @@ function App() {
       setLyrics(lyrics.lyrics.replace(/(\n|\r)/g, "<br />"));
       console.log(lyrics);
     } catch (err) {
+      console.log(error);
       setError(err.message);
     }
   };

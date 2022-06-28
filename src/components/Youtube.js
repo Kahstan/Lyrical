@@ -40,6 +40,7 @@ const Youtube = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
+            <br />
           </div>
         );
       });
@@ -60,7 +61,6 @@ const Youtube = () => {
     event.preventDefault();
     fetchSearch(finalUrl);
   };
-  //still not able to map it out, the website crashes when the jsx gets loaded without value, thinking whether or not to just display the first data shown
   return (
     <div>
       <form className="ml-40 mb-10">
