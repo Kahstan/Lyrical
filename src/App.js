@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Lyrics from "./components/Lyrics";
+import Button from "./components/Button";
 import Artist from "./components/Artist";
 import Song from "./components/Song";
 
@@ -99,19 +99,21 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-5xl font-medium py-2">Search Lyrics</h1>
+      <h1 className="text-5xl font-black py-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 to-purple-800 hover:from-pink-500 hover:to-yellow-500">
+        Musix Lyrix
+      </h1>
       <form>
         <Artist handleArtistChange={handleArtistChange} />
         <Song handleSongChange={handleSongChange} />
-        <Lyrics handleSubmit={handleSubmit} />
+        <Button handleSubmit={handleSubmit} />
       </form>
       <div className="grid grid-cols-6 gap-4 border- 2">
         <div className=" block mt-4 mb-10">
-          <div className="mt-6">{search}</div>
+          <div className="mt-6 ml-10">{search}</div>
         </div>
         {/* this is scary */}
         <p
-          className=" leading-tight col-start-3 col-end-7 block ml-40 mt-10 mb-10 text-m max-w-2xl text-center	"
+          className="leading-tight col-start-3 col-end-7 block ml-40 mt-10 mb-10 text-m max-w-2xl text-center text-zinc-50"
           dangerouslySetInnerHTML={{ __html: lyrics }}
         ></p>
       </div>

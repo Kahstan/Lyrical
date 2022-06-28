@@ -10,7 +10,13 @@ html {
 
 body {
   margin: 0;
+  background: url(../public/77451.jpg) fixed;
+  background-size: 100%;
   background-color: whitesmoke;
+}
+
+img {
+  opacity: 0.5;
 }
 
 .centered {
