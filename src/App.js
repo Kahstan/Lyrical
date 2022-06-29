@@ -3,11 +3,13 @@ import Button from "./components/Button";
 import Artist from "./components/Artist";
 import Song from "./components/Song";
 
+///// lyrics api /////
 const apiUrl = "https://api.lyrics.ovh/v1/";
-const APIKEY = "AIzaSyDkfCnshU7ku2AMAvsLa7U4SfED2ZO84ws";
-const result = 3;
+const APIKEY = "AIzaSyBYqcs4yJLvZWb6ZJK5iEDi_KZn1Hog_Kw";
+const result = 2;
 
 function App() {
+  ///// lyrics /////
   const [artist, setArtist] = useState("");
   const [song, setSong] = useState("");
   const [lyrics, setLyrics] = useState("");
@@ -17,7 +19,7 @@ function App() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [firstLoad, setFirstLoad] = useState(true);
-  /////// youtube final api ////////
+  /////// youtube api ////////
   const finalUrl = `https://youtube.googleapis.com/youtube/v3/search?q=${input}&key=${APIKEY}&maxResults=${result}`;
 
   const fetchLyrics = async (url) => {
@@ -31,6 +33,7 @@ function App() {
     } catch (err) {
       console.log(error);
       setError(err.message);
+      alert("There is an error fetching your content, please try again!");
     }
   };
 
@@ -69,7 +72,7 @@ function App() {
             <iframe
               className="ml-10 relative"
               width="560"
-              height="315"
+              height="327"
               key={i}
               src={link}
               title="YouTube video player"
@@ -99,7 +102,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-5xl font-black py-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 to-purple-800 hover:from-pink-500 hover:to-yellow-500">
+      <h1 className="text-5xl tracking-wide py-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 to-purple-800 hover:from-pink-500 hover:to-yellow-500 scroll-smooth">
         Musix Lyrix
       </h1>
       <form>
@@ -107,13 +110,13 @@ function App() {
         <Song handleSongChange={handleSongChange} />
         <Button handleSubmit={handleSubmit} />
       </form>
-      <div className="grid grid-cols-6 gap-4 border- 2">
-        <div className=" block mt-4 mb-10">
+      <div className="grid grid-cols-6 gap-4">
+        <div className=" block mt-4 mb-12">
           <div className="mt-6 ml-10">{search}</div>
         </div>
         {/* this is scary */}
         <p
-          className="leading-tight col-start-3 col-end-7 block ml-40 mt-10 mb-10 text-m max-w-2xl text-center text-zinc-50"
+          className="leading-tight col-start-3 col-end-7 block ml-48 mt-10 rounded-xl mb-10 h-86 text-l max-w-2xl h-screen text-center text-zinc-50 overflow-auto	bg-white/[.1]"
           dangerouslySetInnerHTML={{ __html: lyrics }}
         ></p>
       </div>
