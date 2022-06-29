@@ -5,7 +5,7 @@ import Song from "./components/Song";
 
 const apiUrl = "https://api.lyrics.ovh/v1/";
 const APIKEY = "AIzaSyDkfCnshU7ku2AMAvsLa7U4SfED2ZO84ws";
-const result = 5;
+const result = 3;
 
 function App() {
   const [artist, setArtist] = useState("");
@@ -23,7 +23,7 @@ function App() {
   const fetchLyrics = async (url) => {
     setError(null);
     try {
-      const res = await fetch(url, { mode: "cors" });
+      const res = await fetch(url);
       const lyrics = await res.json();
 
       setLyrics(lyrics.lyrics.replace(/(\n|\r)/g, "<br />"));
@@ -54,7 +54,7 @@ function App() {
     try {
       const res = await fetch(url);
 
-      if (res.status !== 200) {
+      if (res.status === 404) {
         throw new Error("something is wrong");
       }
 
