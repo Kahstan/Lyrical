@@ -2,31 +2,25 @@
 
 ![ThumbnailScreenshot](/Screenshot_Musix_Lyrix.png)
 
-Musix Lyrix is an app
+Musix Lyrix is an app that integrates both Youtube and Lyrics to elevate your Youtube experience. Musix Lyrix is created to fill the gap of consumers not being able to find the lyrics of their favourite songs. Combining the Youtube Search Api and Lyrics Data Api, consumers are able to look for music videos and sing along.
 
 ## **How To Use**
 
-1.
+1. Search by typing in your desired artist and song title.
+2. Click search button to initiate the search. (The fetching of data depends on the server)
 
 ## **Technology**
 
-TAILWIND CSS
 REACTJS
+TAILWIND CSS
 
 ## **API DOCUMENTATION**
 
-This project is used based on 2 API.
+This Project is created based on 2 APIs below:
+
 The lyricsAPI used is available on Apiary.io: http://docs.lyricsovh.apiary.io/.
 The YoutubeAPI used is is available on Developers, google: https://developers.google.com/youtube/v3/docs
 
 ## **Challenges**
 
-- This game was initially created with only "ladders" representing both snakes and ladders, just with different start and end positions. Stretch goal has re-developed the codes to make them individually.
-
-- Randomizing the snakes and ladders in the game has resulted in some bugs. Specifically created some "invisible" snakes and ladders that doesn't satisfy the condition of being a snake or a ladder.
-
-- This game was also originally created as a single player game. 2 players has been created for the stretch goal.
-
 ## **Future Works**
-
-- Possible AI for the second player.
