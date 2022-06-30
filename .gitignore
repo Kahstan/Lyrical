@@ -42,7 +42,8 @@ Thumbs.db
 # Node/npm #
 ##############
 node_modules
-.env
+.env    
+secret.js
 
 # Sass #
 ##############
@@ -102,7 +103,6 @@ bower.json
 # Ignore node_modules
 node_modules/
 package-lock.json
-config.js
 
 # Ignore precompiled javascript packs
 /public/packs

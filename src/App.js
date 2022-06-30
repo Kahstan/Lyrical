@@ -4,12 +4,12 @@ import Artist from "./components/Artist";
 import Song from "./components/Song";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ErrorModal from "./components/ErrorModal";
-import googleApi from "./config";
+import googleApi from "./secret.js";
 
 ///// lyrics api /////
 const apiUrl = "https://api.lyrics.ovh/v1/";
 //insert your own API here
-const APIKEY = googleApi;
+const APIKEY = googleApi.apikey;
 const result = 2;
 
 function App() {
@@ -104,7 +104,7 @@ function App() {
       setIsLoading(true);
     } else {
       setFirstLoad(false);
-    }
+    } // eslint-disable-next-line
   }, [input]);
 
   const handleModelOkay = () => {
@@ -137,8 +137,8 @@ function App() {
 
         {error && (
           <ErrorModal
-            title="Error Encountered"
-            message="There is an error with your input"
+            title="Some Error Encountered"
+            message="The database might not have the song you are looking for.."
             okayClicked={handleModelOkay}
           />
         )}
