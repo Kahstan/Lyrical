@@ -2,7 +2,7 @@
 
 ![ThumbnailScreenshot](/Screenshot_Lyrical.png)
 
-musixlyrical.netlify.app
+https://musixlyrical.netlify.app/
 
 Lyrical is an app that integrates both Youtube and Lyrics to elevate your Youtube experience.
 
