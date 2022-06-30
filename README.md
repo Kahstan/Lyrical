@@ -1,12 +1,10 @@
-# Musix Lyrix: Sing Along With The Music Video
+# Lyrical: Sing Along With The Music Video
 
 ![ThumbnailScreenshot](/Screenshot_Lyrical.png)
 
-Musix Lyrix is an app that integrates both Youtube and Lyrics to elevate your Youtube experience.
+Lyrical is an app that integrates both Youtube and Lyrics to elevate your Youtube experience.
 
-Musix Lyrix is created to fill the gap of consumers not being able to find the lyrics of their favourite songs.
-
-Combining the Youtube Search Api and Lyrics Data Api, consumers are able to look for music videos and sing along.
+Lyrical uses Youtube Search API and Lyrics Data API to solve the complications of having 2 windows while watching music videos and singing along.
 
 ## **How To Use**
 
