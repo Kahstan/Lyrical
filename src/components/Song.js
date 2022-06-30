@@ -10,6 +10,8 @@ const Song = (props) => {
       "
         placeholder="Song name"
         onChange={props.handleSongChange}
+        required
+        minlength="1"
       />
     </span>
   );

@@ -9,6 +9,8 @@ const Artist = (props) => {
           focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder:italic"
         placeholder="Artist"
         onChange={props.handleArtistChange}
+        required
+        minlength="1"
       />
     </span>
   );
