@@ -10,7 +10,7 @@ const Artist = (props) => {
         placeholder="Artist"
         onChange={props.handleArtistChange}
         required
-        minlength="1"
+        minLength="1"
       />
     </span>
   );

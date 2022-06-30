@@ -3,6 +3,7 @@ import Button from "./components/Button";
 import Artist from "./components/Artist";
 import Song from "./components/Song";
 import LoadingSpinner from "./components/LoadingSpinner";
+import ErrorModal from "./components/ErrorModal";
 
 ///// lyrics api /////
 const apiUrl = "https://api.lyrics.ovh/v1/";
@@ -35,7 +36,6 @@ function App() {
     } catch (err) {
       console.log(error);
       setError(err.message);
-      alert("I'm having trouble finding your lyrics, please try again!");
     }
     setIsLoading(false);
   };
@@ -90,7 +90,6 @@ function App() {
       setYoutube(finalMapData);
     } catch (err) {
       setError(err.message);
-      alert("I'm having trouble finding the youtube video, please try again!");
     }
     setIsLoading(false);
   };
@@ -105,6 +104,10 @@ function App() {
       setFirstLoad(false);
     }
   }, [input]);
+
+  const handleModelOkay = () => {
+    setError(false);
+  };
 
   return (
     <div>
@@ -129,6 +132,14 @@ function App() {
           ></p>
         )}
         {isLoading && <LoadingSpinner />}
+
+        {error && (
+          <ErrorModal
+            title="Error Encountered"
+            message="There is an error with your input"
+            okayClicked={handleModelOkay}
+          />
+        )}
       </div>
     </div>
   );
