@@ -4,10 +4,12 @@ import Artist from "./components/Artist";
 import Song from "./components/Song";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ErrorModal from "./components/ErrorModal";
+import googleApi from "./config";
 
 ///// lyrics api /////
 const apiUrl = "https://api.lyrics.ovh/v1/";
-const APIKEY = "AIzaSyDkfCnshU7ku2AMAvsLa7U4SfED2ZO84ws";
+//insert your own API here
+const APIKEY = googleApi;
 const result = 2;
 
 function App() {
