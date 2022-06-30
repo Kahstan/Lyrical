@@ -2,6 +2,8 @@
 
 ![ThumbnailScreenshot](/Screenshot_Lyrical.png)
 
+musixlyrical.netlify.app
+
 Lyrical is an app that integrates both Youtube and Lyrics to elevate your Youtube experience.
 
 Lyrical uses Youtube Search API and Lyrics Data API to solve the complications of having 2 windows while watching music videos and singing along.
