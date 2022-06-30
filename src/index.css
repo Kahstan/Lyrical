@@ -14,6 +14,7 @@ html {
 body {
   margin: 0;
   background: url(../public/77451.jpg) fixed;
+  background-blend-mode: inherit;
   background-size: 100%;
   background-color: #080032;
 }

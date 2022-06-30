@@ -1,6 +1,6 @@
 # Musix Lyrix: Sing Along With The Music Video
 
-![ThumbnailScreenshot](/Screenshot_Musix_Lyrix.png)
+![ThumbnailScreenshot](/Screenshot_Lyrical.png)
 
 Musix Lyrix is an app that integrates both Youtube and Lyrics to elevate your Youtube experience.
 
@@ -25,7 +25,7 @@ This Project is created based on 2 APIs below:
 The lyricsAPI used is available on Apiary.io: http://docs.lyricsovh.apiary.io/
 
 You will have to register an account with google developers to generate a API key.  
-You will require an APIKEY in order to use the app for Youtube.  
+You will require an API key in order to use the app for Youtube.  
 The YoutubeAPI used is is available on Developers, google: https://developers.google.com/youtube/v3/docs
 
 ## **Challenges**
