@@ -137,7 +137,7 @@ function App() {
 
         {error && (
           <ErrorModal
-            title="Some Error Encountered"
+            title="Error Encountered"
             message="The database might not have the song you are looking for.."
             okayClicked={handleModelOkay}
           />
