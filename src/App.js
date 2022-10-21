@@ -6,8 +6,11 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import ErrorModal from "./components/ErrorModal";
 import googleApi from "./secret.js";
 
+// new lyrics searcher
+const musicMatchApiKey = "1538e2542ebac4878de127b5193d9854";
+
 ///// lyrics api /////
-const apiUrl = "https://api.lyrics.ovh/v1/";
+// const apiUrl = "https://api.lyrics.ovh/v1/";
 //insert your own API here
 const APIKEY = googleApi.apikey;
 const result = 2;
@@ -25,6 +28,7 @@ function App() {
   const [firstLoad, setFirstLoad] = useState(true);
   /////// youtube api ////////
   const finalUrl = `https://youtube.googleapis.com/youtube/v3/search?q=${input}&key=${APIKEY}&maxResults=${result}`;
+  const lyricsUrl = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=${song}&q_artist=${artist}&apikey=${musicMatchApiKey}`;
 
   const fetchLyrics = async (url) => {
     setIsLoading(true);
@@ -33,7 +37,9 @@ function App() {
       const res = await fetch(url);
       const lyrics = await res.json();
 
-      setLyrics(lyrics.lyrics.replace(/(\n|\r)/g, "<br />"));
+      setLyrics(
+        lyrics.message.body.lyrics.lyrics_body.replace(/(\n|\r)/g, "<br />")
+      );
       console.log(lyrics);
     } catch (err) {
       console.log(error);
@@ -98,7 +104,7 @@ function App() {
 
   useEffect(() => {
     if (!firstLoad) {
-      fetchLyrics(apiUrl + artist + "/" + song);
+      fetchLyrics(lyricsUrl);
       fetchYoutube(finalUrl);
       window.scrollBy(0, 140);
       setIsLoading(true);
